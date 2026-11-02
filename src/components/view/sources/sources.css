@@ -32,3 +32,10 @@
     font-weight: 400;
     white-space: nowrap;
 }
+
+@media (max-width: 480px) {
+    .sources {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
