@@ -16,14 +16,10 @@ class App {
         if (!sourcesElement) return;
 
         sourcesElement.addEventListener('click', (e) =>
-            this.controller.getNews(e as MouseEvent, (data: EverythingResponse) =>
-                this.view.drawNews(data)
-            )
+            this.controller.getNews(e as MouseEvent, (data: EverythingResponse) => this.view.drawNews(data))
         );
 
-        this.controller.getSources((data: SourcesResponse) =>
-            this.view.drawSources(data)
-        );
+        this.controller.getSources((data: SourcesResponse) => this.view.drawSources(data));
     }
 }
 

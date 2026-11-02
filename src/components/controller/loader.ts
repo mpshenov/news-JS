@@ -10,7 +10,7 @@ class Loader {
 
     getResp<T>(
         { endpoint, options = {} }: GetRespParams,
-        callback: Callback<T>                        // ← без дефолта
+        callback: Callback<T> // ← без дефолта
     ): void {
         this.load<T>('GET', endpoint, callback, options);
     }
@@ -25,7 +25,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: LoaderOptions, endpoint: string):string {
+    makeUrl(options: LoaderOptions, endpoint: string): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -36,7 +36,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load<T>(method: HttpMethod, endpoint:string, callback:Callback<T>, options:LoaderOptions = {}):void {
+    private load<T>(method: HttpMethod, endpoint: string, callback: Callback<T>, options: LoaderOptions = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

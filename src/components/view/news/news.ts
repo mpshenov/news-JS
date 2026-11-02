@@ -3,9 +3,8 @@ import { EverythingResponse, Article } from '../../../types';
 
 class News {
     public draw(data: EverythingResponse): void {
-        const news: Article[] = data.articles.length >= 10
-            ? data.articles.filter((_item, idx) => idx < 10)
-            : data.articles;
+        const news: Article[] =
+            data.articles.length >= 10 ? data.articles.filter((_item, idx) => idx < 10) : data.articles;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement | null;
@@ -30,11 +29,7 @@ class News {
 
             const dateEl = newsClone.querySelector('.news__meta-date');
             if (dateEl) {
-                dateEl.textContent = item.publishedAt
-                    .slice(0, 10)
-                    .split('-')
-                    .reverse()
-                    .join('-');
+                dateEl.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
             }
 
             const titleEl = newsClone.querySelector('.news__description-title');

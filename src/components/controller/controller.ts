@@ -3,10 +3,7 @@ import { Callback, EverythingResponse, SourcesResponse } from '../../types';
 
 class AppController extends AppLoader {
     public getSources(callback: Callback<SourcesResponse>): void {
-        super.getResp<SourcesResponse>(
-            { endpoint: 'sources' },
-            callback
-        );
+        super.getResp<SourcesResponse>({ endpoint: 'sources' }, callback);
     }
 
     public getNews(e: MouseEvent, callback: Callback<EverythingResponse>): void {
