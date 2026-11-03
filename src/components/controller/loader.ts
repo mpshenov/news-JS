@@ -10,7 +10,7 @@ class Loader {
 
     getResp<T>(
         { endpoint, options = {} }: GetRespParams,
-        callback: Callback<T> // ← без дефолта
+        callback: Callback<T>
     ): void {
         this.load<T>('GET', endpoint, callback, options);
     }
